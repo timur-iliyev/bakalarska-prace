@@ -1,0 +1,278 @@
+@font-face {
+	font-family: 'Porsche Next';
+	src: url('../fonts/PorscheNext-Regular.woff2') format('woff2');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'Porsche Next';
+	src: url('../fonts/PorscheNext-SemiBold.woff2') format('woff2');
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'Porsche Sans';
+	src: url('../fonts/PorscheSans.ttf') format('truetype');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+:root {
+	--color-dark: #000000;
+	--color-dark-rgb: 0, 0, 0;
+	--color-dark-alternate: #222529;
+	--color-light: #ffffff;
+	--color-light-alternate: #c4c4c4;
+
+	--border-radius: 7px;
+
+	--font-family-base: 'Porsche Next', sans-serif, Arial;
+	--font-family-accent: 'Porsche Sans', sans-serif, Arial;
+
+	--input-height: 3rem;
+
+	--section-margin: 0 0 2rem 0;
+	--section-padding-x: 0 clamp(0.25rem, -0.75rem + 5vw, 3rem);
+	--gap: 1.5rem;
+}
+
+body {
+	max-width: 100vw;
+	font-family: var(--font-family-base);
+	font-size: 16px;
+	line-height: 1.75;
+	background-color: var(--color-dark);
+}
+section {
+	margin: var(--section-margin);
+	padding: var(--section-padding-x);
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: 600;
+}
+@media (hover: hover) {
+	a:hover {
+		color: var(--color-light-alternate);
+		transform: scale(1.1);
+	}
+	button:hover {
+		color: var(--color-light);
+		transform: scale(1.1);
+	}
+	.article-card:hover {
+		transform: scale(1.02);
+	}
+}
+
+/* HLAVIČKA A NAVBAR */
+.navbar-brand {
+	font-family: var(--font-family-accent);
+	color: var(--color-light);
+}
+.nav-item {
+	margin-left: 1rem;
+}
+
+/* HERO */
+.h1 {
+	font-family: var(--font-family-accent);
+	font-size: clamp(1.5rem, 0.227rem + 6.36vw, 5rem);
+}
+.hero p {
+	font-size: clamp(1rem, 0.273rem + 3.64vw, 3rem);
+}
+.hero {
+	min-height: 100dvh;
+	background: linear-gradient(
+			rgba(var(--color-dark-rgb), 0.9),
+			rgba(var(--color-dark-rgb), 0.5)
+		),
+		image-set(url('../images/HeroBg.jpg') 1x, url('../images/HeroBg@2x.jpg') 2x);
+	background-position: center;
+	background-size: cover;
+}
+
+/* NOVINKY A ČLÁNKY */
+.articles-grid-container {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 3fr));
+	justify-items: center;
+	gap: var(--gap);
+}
+.article-card {
+	width: 100%;
+	border-radius: var(--border-radius);
+	position: relative;
+}
+.articles-card-image {
+	width: 100%;
+	aspect-ratio: 16/9;
+	object-fit: cover;
+	object-position: center;
+	border-radius: var(--border-radius);
+}
+.article-link {
+	line-height: 1;
+	font-weight: 600;
+}
+.article-link::after {
+	content: '';
+	position: absolute;
+	inset: 0;
+}
+.article-card .card-text {
+	position: relative;
+}
+@media (width > 75rem) {
+	.articles-grid-container {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+/* @media (width > 48rem) {
+	.event-card-text {
+		width: clamp(45ch, 50%, 70ch);
+	}
+} */
+
+/* SEKCE MODELY PORSCHE */
+/* .models a,
+.models p {
+	color: var(--color-light) !important;
+}
+.models carousel-control-prev-icon,
+.models .btn {
+	background-color: var(--color-light) !important;
+} */
+
+.models-carousel-inner {
+	border-radius: var(--border-radius);
+}
+@media (width > 120rem) {
+	.models-carousel-inner img {
+		width: 100vw;
+		height: 100vh;
+		object-fit: cover;
+	}
+}
+.model-carousel-title {
+	font-family: var(--font-family-accent);
+	font-size: clamp(1rem, -0.385rem + 3.85vw, 2.5rem);
+}
+
+/* SEKCE KONTAKTUJ NÁS */
+.contact-form {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.form-part {
+	display: flex;
+	flex-direction: column;
+	margin: var(--section-margin);
+}
+.contact-form-input,
+.contact-form-textarea {
+	width: clamp(300px, 30vw, 500px);
+	height: var(--input-height);
+	border-radius: var(--border-radius);
+	padding: 1rem;
+	border: 1px solid var(--color-light-alternate);
+}
+.contact-form-textarea {
+	height: calc(var(--input-height) * 2);
+}
+input:focus,
+textarea:focus {
+	transform: scale(1.02);
+}
+.contact-us {
+	background: linear-gradient(
+			rgba(var(--color-dark-rgb), 0.7),
+			rgba(var(--color-dark-rgb), 0.4)
+		),
+		image-set(
+			url('../images/ContactBg.jpg') 1x,
+			url('../images/ContactBg@2x.jpg') 2x
+		);
+	background-position: center;
+	background-size: cover;
+}
+
+/* PATIČKA */
+.footer-brand-title {
+	font-family: var(--font-family-accent);
+	font-size: 4vw;
+}
+.social-media-list,
+.footer-navbar {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+}
+.social-media-list {
+	gap: var(--gap);
+}
+.road {
+	background-color: var(--color-dark);
+	position: relative;
+	width: 100vw;
+	height: 200px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.road::after {
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 4px;
+	background: linear-gradient(
+		90deg,
+		var(--color-light),
+		var(--color-light) 50%,
+		transparent 50%,
+		transparent 100%
+	);
+	background-size: 50px;
+	animation: animated-road 0.1s linear infinite;
+}
+@keyframes animated-road {
+	100% {
+		background-position: 50px 0;
+	}
+	0% {
+		background-position: 0 0;
+	}
+}
+.car {
+	position: absolute;
+	width: 200px;
+	aspect-ratio: 16/9;
+	background-image: url(../images/AnimetedCar.png);
+	background-position: center;
+	background-size: cover;
+	top: 0;
+	left: 30%;
+	z-index: 1;
+}
+@media (width > 48rem) {
+	.road {
+		height: 300px;
+	}
+	.car {
+		width: 300px;
+		left: 50%;
+	}
+}
